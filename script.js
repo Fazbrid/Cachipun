@@ -19,9 +19,9 @@ function SelectionComputer(){
             return "A ocurrdio un error"
     }
 }
-let respuesta1 = SelectionPlayer()
-let respuesta2 = SelectionComputer()
 
+/* Toma  las variables con las con las jugadas y decide quien si gano 
+perdio o empato*/
 function resultado(respuesta1 , respuesta2){
    switch (respuesta1.toLowerCase()){
         case "rock":
@@ -48,9 +48,21 @@ function resultado(respuesta1 , respuesta2){
             }else if( respuesta2.toLowerCase() === "paper"){
                 return "win"
             }
+        default :
+            return "que paso amigito"
     
    }
 }
+/* funcion que empieza toma las variables de las decisiones y reparte en la funciones*/
+function game (){
+    let n = 0
+    while (n < 5) {
+        let respuesta1 = SelectionPlayer()
+        let respuesta2 = SelectionComputer()
+        let result = resultado(respuesta1 , respuesta2)
 
-let result = resultado(respuesta1 , respuesta2)
-console.log(result)
+        console.log(result)
+        n = n+1
+    }
+}
+game()
