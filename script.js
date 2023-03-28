@@ -12,14 +12,21 @@ function SelectionComputer(){
         case 0 :
             return "Rock";
         case 1 :
-            return "Paper"
+            return "Rock"
         case 2 :
-            return "Scissor"
+            return "Rock"
         default:
             return "A ocurrdio un error"
     }
 }
+let respuesta1 = SelectionPlayer()
+let respuesta2 = SelectionComputer()
 
-let opcion2 = SelectionComputer()
+function resultado(respuesta1 , respuesta2){
+    if (respuesta1.toLowerCase() === respuesta2.toLowerCase()){
+        return "Tie"
+    }
+}
 
-console.log(opcion2)
+let result = resultado(respuesta1 , respuesta2)
+console.log(result)
