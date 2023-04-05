@@ -70,27 +70,46 @@ function game (){
 
 function opcion (e){
     if (e.target.id === 'button-tijeras'){
-        let respuestaCom =  SelectionComputer()
-        let respuestaPla = 'scissor'
-        let result = resultado(respuestaPla , respuestaCom)
-        console.log(result)
+        respuestaCom =  SelectionComputer()
+        espuestaPla = 'scissor'
+        
+        
     }else if (e.target.id === 'button-piedra'){
-        let respuestaCom =  SelectionComputer()
-        let respuestaPla = 'rock'
-        let result = resultado(respuestaPla , respuestaCom)
-        console.log(result)
+        respuestaCom =  SelectionComputer()
+        respuestaPla = 'rock'
+        
+        
     }else if (e.target.id === 'button-papel'){
-        let respuestaCom =  SelectionComputer()
-        let respuestaPla = 'paper'
-        let result = resultado(respuestaPla , respuestaCom)
-        console.log(result)
+        respuestaCom =  SelectionComputer()
+        respuestaPla = 'paper'
+        
+        
     }
+    let result = resultado(respuestaPla , respuestaCom)
+    if(result === 'win'){
+        VictoriasPla++
+    }else if( result === 'lose'){
+        VictoriasCom++
+    }
+    
+    if(VictoriasCom >= 3){
+        console.log('Gano la computadora')
+    }else if(VictoriasPla >= 3){
+        console.log("gano el jugador")
+    }
+  
 }
 
 // Manejando el DOM
-
+let respuestaCom =""
+let respuestaPla =""
+let VictoriasPla = 0
+let VictoriasCom = 0
 const tijera = document.getElementById('button-tijeras').addEventListener('click',opcion)
 const piedra = document.getElementById('button-piedra').addEventListener('click',opcion)
 const papel = document.getElementById('button-papel').addEventListener('click',opcion)
+
+let puntuacionPla = 0
+let puntuacionCom
 
 
