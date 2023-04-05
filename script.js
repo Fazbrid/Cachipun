@@ -1,3 +1,4 @@
+
 /* pregunta al usario cual es la opcion que desea elegir */
 function SelectionPlayer(){
     let respuesta = prompt("Escriba su opcion")
@@ -65,4 +66,31 @@ function game (){
         n = n+1
     }
 }
-game()
+// funcion para determinar la cual es que selecciono con la opcion
+
+function opcion (e){
+    if (e.target.id === 'button-tijeras'){
+        let respuestaCom =  SelectionComputer()
+        let respuestaPla = 'scissor'
+        let result = resultado(respuestaPla , respuestaCom)
+        console.log(result)
+    }else if (e.target.id === 'button-piedra'){
+        let respuestaCom =  SelectionComputer()
+        let respuestaPla = 'rock'
+        let result = resultado(respuestaPla , respuestaCom)
+        console.log(result)
+    }else if (e.target.id === 'button-papel'){
+        let respuestaCom =  SelectionComputer()
+        let respuestaPla = 'paper'
+        let result = resultado(respuestaPla , respuestaCom)
+        console.log(result)
+    }
+}
+
+// Manejando el DOM
+
+const tijera = document.getElementById('button-tijeras').addEventListener('click',opcion)
+const piedra = document.getElementById('button-piedra').addEventListener('click',opcion)
+const papel = document.getElementById('button-papel').addEventListener('click',opcion)
+
+
