@@ -88,15 +88,28 @@ function opcion (e){
     let result = resultado(respuestaPla , respuestaCom)
     if(result === 'win'){
         VictoriasPla++
+        document.getElementById('Resultado').innerText = `Jugador ${VictoriasPla} - ${VictoriasCom} Computadora`
+
     }else if( result === 'lose'){
         VictoriasCom++
+        document.getElementById('Resultado').innerText = `Jugador ${VictoriasPla} - ${VictoriasCom} Computadora`
     }
     
     if(VictoriasCom >= 3){
-        console.log('Gano la computadora')
+        document.getElementById('Resultado').innerText = 'Derrota'
+        document.getElementById('button-tijeras').style.visibility = 'hidden'
+        document.getElementById('button-piedra').style.visibility = 'hidden'
+        document.getElementById('button-papel').style.visibility = 'hidden'
+        document.getElementById('Resultado').style.color='Red'
+        
     }else if(VictoriasPla >= 3){
-        console.log("gano el jugador")
+        document.getElementById('Resultado').innerText = 'Victoria'
+        document.getElementById('button-tijeras').style.visibility = 'hidden'
+        document.getElementById('button-piedra').style.visibility = 'hidden'
+        document.getElementById('button-papel').style.visibility = 'hidden'
+        document.getElementById('Resultado').style.color='green'
     }
+    
   
 }
 
@@ -105,6 +118,7 @@ let respuestaCom =""
 let respuestaPla =""
 let VictoriasPla = 0
 let VictoriasCom = 0
+
 const tijera = document.getElementById('button-tijeras').addEventListener('click',opcion)
 const piedra = document.getElementById('button-piedra').addEventListener('click',opcion)
 const papel = document.getElementById('button-papel').addEventListener('click',opcion)
